@@ -35,12 +35,12 @@ model Post {
   updateAt      DateTime @updatedAt
   author        User     @relation("WrittenPosts", fields: [authorId], references: [id])
   authorId      String
-  favoritedBy   User     @relation("favoritePosts", fields: [favoritedById], references: [id])
+  favoritedBy   User     @relation("FavoritePosts", fields: [favoritedById], references: [id])
   favoritedById String
   categories    Category[]
 }
 
 model Category {
   id     String @id @default(uuid())
-  posts  Posts[]
+  posts  Post[]
 }
